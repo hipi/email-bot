@@ -6,8 +6,7 @@ const scheduleRun = require("./schedule");
 const getAllDataAndSendMail = async () => {
   let apiData = await getAllData();
   let htmlData = await getHtmlData(apiData);
-  let res = await sendMail(htmlData);
-  console.log(res);
+  await sendMail(htmlData);
 };
 
 scheduleRun(getAllDataAndSendMail);
