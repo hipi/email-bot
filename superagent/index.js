@@ -84,8 +84,6 @@ const getAllData = async () => {
   let oneData = await getOne();
   let weatherData = await getWeather();
   const allData = { today: formatDate(), ...oneData, ...weatherData };
-  console.log(allData);
   return allData;
 };
-
 module.exports = getAllData;

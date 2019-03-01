@@ -18,9 +18,10 @@ const sendMail = HtmlData => {
     if (error) {
       console.log(error);
       sendMail(HtmlData); //再次发送
+    } else {
+      console.log("邮件发送成功", info.messageId);
+      console.log("静等下一次发送");
     }
-    console.log("邮件发送成功", info.messageId);
-    console.log("静等下一次发送");
   });
 };
 
