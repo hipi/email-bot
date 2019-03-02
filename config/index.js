@@ -17,12 +17,12 @@ module.exports = {
     {
       TO: "yuyehack@gmail.com",
       CITY: "jiangsu",
-      LOCATION: "pukou-district"
+      LOCATION: "nanjing"
     },
     {
-      TO: "591069908@qq.com",
-      CITY: "jiangsu",
-      LOCATION: "kunshan"
+      TO: "yuyehack@qq.com",
+      CITY: "zhejiang",
+      LOCATION: "hangzhou"
     }
   ],
   //每日发送时间
