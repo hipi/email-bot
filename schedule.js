@@ -1,4 +1,4 @@
-var schedule = require("node-schedule");
+const schedule = require("node-schedule");
 const config = require("./config");
 const scheduleRun = fn => {
   console.log("NodeMail: 开始等待目标时刻...");
