@@ -4,7 +4,7 @@ module.exports = {
   MOJI_HOST: "https://tianqi.moji.com/weather/china/", //中国墨迹天气url,
   CITY: "jiangsu", //收信者所在城市
   LOCATION: "nanjing", //收信者所在区
-  EmianService: "outlook", //发送者邮箱厂家
+  EmianService: env.EmianService, //发送者邮箱厂家
   EamilAuth: {
     //发送者邮箱账户SMTP授权码
     user: env.EamilAuth_user,
