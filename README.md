@@ -24,7 +24,7 @@ yarn start
 调试的话 可以自己修改定时任务 详细定时文档可去[node-schedule](https://github.com/node-schedule/node-schedule) 
 
 
-![example](https://ws1.sinaimg.cn/large/0079V2lRgy1g0o9zhagglj31qu1bqb29.jpg)
+![example](https://wx1.sinaimg.cn/large/0079V2lRgy1g0oa64ouz9j31qu1bqb29.jpg)
 ## 最后
 
 仅供娱乐
