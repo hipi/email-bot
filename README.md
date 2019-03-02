@@ -28,3 +28,4 @@ yarn start
 ## 最后
 
 仅供娱乐
+感谢[Vincedream](https://github.com/Vincedream/NodeMail)提供的思路
