@@ -10,9 +10,10 @@ const getAllDataAndSendMail = async () => {
     let item = EmailToArr[i];
     let apiData = await getAllData(item.CITY, item.LOCATION);
     let htmlData = await getHtmlData(apiData);
-    await sendMail(item.TO, htmlData);
+    sendMail(item.TO, htmlData).catch(To => {
+      console.log(To + "邮件发送失败");
+    });
   }
 };
-
 // 定时
 scheduleRun(getAllDataAndSendMail);

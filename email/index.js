@@ -19,7 +19,7 @@ const sendMail = (To, HtmlData) => {
     transporter.sendMail(mailOptions, (error, info = {}) => {
       if (error) {
         console.log(error);
-        reject();
+        reject(mailOptions.To);
         //sendMail(To, HtmlData); //再次发送
       } else {
         console.log("邮件发送成功", info.messageId);
