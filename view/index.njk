@@ -8,74 +8,76 @@
     />
   </head>
 
-  <body style="padding: 0;width: 600px;margin: 0 auto;">
-
-     <div style="width:100%; margin: 40px auto;font-size:20px; color:#5f5e5e;text-align:center">
-        <span>今天是{{today}}</span>
-    </div>
-    <div style="width:100%; margin: 20px auto;font-size:16px;color:#2bbc8a;text-align: center;">
-        <span><span style="font-family: Arial;font-size: 100px;line-height: 1;">{{moji.nowInfo.Temp}}</span><span style="vertical-align: top;">℃</span></span>
-        <span style="font-size: 30px;padding-top: 50px;">{{moji.nowInfo.WeatherText}}</span>
-    </div>
-    <div style="width:100%; margin: 0 auto;color:#5f5e5e;text-align:center">
-        <span style="display:block;color:#676767;font-size:20px">{{moji.weatherTip}}</span>
-        <span style="display:block;margin-top:15px;color:#676767;font-size:15px">近期天气预报</span>
-
-        {% for item in moji.threeDaysData %}
-          <div style="display: flex;margin-top:5px;height: 30px;line-height: 30px;justify-content: space-around;align-items: center;">
-            <span style="width:15%; text-align:center;">{{ item.Day }}</span>
-            <div style="width:25%; text-align:center;">
-                <img style="height:26px;vertical-align:middle;" src='{{ item.WeatherImgUrl }}' alt="">
-                <span style="display:inline-block">{{ item.WeatherText }}</span>
-            </div>
-            <span style="width:25%; text-align:center;">{{ item.Temperature }}</span>
-            
-            
-            {% if (item.PollutionLevel==='level_1') %}
-                <div style="width:35%; ">
-                        <span style="display:inline-block;padding:0 8px;line-height:25px;color:#8fc31f; border-radius:15px; text-align:center;">{{ item.Pollution }}</span>
-                </div>
-            
-            {% elif (item.PollutionLevel==='level_2') %}
-                <div style="width:35%; ">
-                        <span style="display:inline-block;padding:0 8px;line-height:25px;color:#d7af0e; border-radius:15px; text-align:center;">{{ item.Pollution }}</span>
-                </div>
-            
-            {% elif (item.PollutionLevel==='level_3') %}
-                <div style="width:35%; ">
-                        <span style="display:inline-block;padding:0 8px;line-height:25px;color:#f39800; border-radius:15px; text-align:center;">{{ item.Pollution }}</span>
-                </div>
-            {% elif (item.PollutionLevel==='level_4') %}
-                <div style="width:35%; ">
-                        <span style="display:inline-block;padding:0 8px;line-height:25px;color:#e2361a; border-radius:15px; text-align:center;">{{ item.Pollution }}</span>
-                </div>
-            {% elif (item.PollutionLevel==='level_5') %}
-                <div style="width:35%; ">
-                        <span style="display:inline-block;padding:0 8px;line-height:25px;color:#5f52a0; border-radius:15px; text-align:center;">{{ item.Pollution }}</span>
-                </div>
-            {% elif (item.PollutionLevel==='level_6') %}
-                <div style="width:35%; ">
-                        <span style="display:inline-block;padding:0 8px;line-height:25px;color:#631541; border-radius:15px; text-align:center;">{{ item.Pollution }}</span>
-                </div>
-            {% else  %}
-              <div style="width:35%; ">
-                        <span style="display:inline-block;padding:0 8px;line-height:25px;color:#631541; border-radius:15px; text-align:center;">none</span>
-                </div>
-            {% endif  %}
+  <body>
+    <div style="padding: 0;max-width: 600px;margin: 0 auto;">
+        <div style="width:100%; margin: 40px auto;font-size:20px; color:#5f5e5e;text-align:center">
+            <span>今天是{{today}}</span>
         </div>
+        <div style="width:100%; margin: 20px auto;font-size:16px;color:#2bbc8a;text-align: center;">
+            <span><span style="font-family: Arial;font-size: 100px;line-height: 1;">{{moji.nowInfo.Temp}}</span><span style="vertical-align: top;">℃</span></span>
+            <span style="font-size: 30px;padding-top: 50px;">{{moji.nowInfo.WeatherText}}</span>
+        </div>
+        <div style="text-align:center;font-size:12px;color:#d480aa">{{moji.addressText}}</dev>
+        <div style="width:100%; margin: 0 auto;color:#5f5e5e;text-align:center">
+            <span style="display:block;color:#676767;font-size:20px">{{moji.weatherTip}}</span>
+            <span style="display:block;margin-top:15px;color:#676767;font-size:15px">近期天气预报</span>
 
-        {% endfor %}
+            {% for item in moji.threeDaysData %}
+            <div style="display: flex;margin-top:5px;height: 30px;line-height: 30px;justify-content: space-around;align-items: center;">
+                <span style="width:15%; text-align:center;">{{ item.Day }}</span>
+                <div style="width:25%; text-align:center;">
+                    <img style="height:26px;vertical-align:middle;" src='{{ item.WeatherImgUrl }}' alt="">
+                    <span style="display:inline-block">{{ item.WeatherText }}</span>
+                </div>
+                <span style="width:25%; text-align:center;">{{ item.Temperature }}</span>
+                
+                
+                {% if (item.PollutionLevel==='level_1') %}
+                    <div style="width:35%; ">
+                            <span style="display:inline-block;padding:0 8px;line-height:25px;color:#8fc31f; border-radius:15px; text-align:center;">{{ item.Pollution }}</span>
+                    </div>
+                
+                {% elif (item.PollutionLevel==='level_2') %}
+                    <div style="width:35%; ">
+                            <span style="display:inline-block;padding:0 8px;line-height:25px;color:#d7af0e; border-radius:15px; text-align:center;">{{ item.Pollution }}</span>
+                    </div>
+                
+                {% elif (item.PollutionLevel==='level_3') %}
+                    <div style="width:35%; ">
+                            <span style="display:inline-block;padding:0 8px;line-height:25px;color:#f39800; border-radius:15px; text-align:center;">{{ item.Pollution }}</span>
+                    </div>
+                {% elif (item.PollutionLevel==='level_4') %}
+                    <div style="width:35%; ">
+                            <span style="display:inline-block;padding:0 8px;line-height:25px;color:#e2361a; border-radius:15px; text-align:center;">{{ item.Pollution }}</span>
+                    </div>
+                {% elif (item.PollutionLevel==='level_5') %}
+                    <div style="width:35%; ">
+                            <span style="display:inline-block;padding:0 8px;line-height:25px;color:#5f52a0; border-radius:15px; text-align:center;">{{ item.Pollution }}</span>
+                    </div>
+                {% elif (item.PollutionLevel==='level_6') %}
+                    <div style="width:35%; ">
+                            <span style="display:inline-block;padding:0 8px;line-height:25px;color:#631541; border-radius:15px; text-align:center;">{{ item.Pollution }}</span>
+                    </div>
+                {% else  %}
+                <div style="width:35%; ">
+                            <span style="display:inline-block;padding:0 8px;line-height:25px;color:#631541; border-radius:15px; text-align:center;">none</span>
+                    </div>
+                {% endif  %}
+            </div>
+
+            {% endfor %}
 
 
-    
         
+            
 
-    </div>
-    <div style="text-align:center;margin:35px 0;">
-            <span style="display:block;margin-top:55px;color:#676767;font-size:15px">ONE · 一个</span>
-             <img src="{{ one.imgSrc }}" style="max-width:100%;margin:10px auto;"  alt="">
-             <span style="color:#b0b0b0;font-size:13px;">摄影</span>
-             <div style="margin:10px auto;width:85%;color:#5f5e5e;" >{{one.info}}</div>
-    </div>
+        </div>
+        <div style="text-align:center;margin:35px 0;">
+                <span style="display:block;margin-top:55px;color:#676767;font-size:15px">ONE · 一个</span>
+                <img src="{{ one.imgSrc }}" style="max-width:100%;margin:10px auto;"  alt="">
+                <span style="color:#b0b0b0;font-size:13px;">摄影</span>
+                <div style="margin:10px auto;width:85%;color:#5f5e5e;" >{{one.info}}</div>
+        </div>
+    </div>   
   </body>
 </html>

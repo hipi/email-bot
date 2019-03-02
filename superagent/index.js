@@ -22,11 +22,18 @@ const getOne = async () => {
   };
 };
 
-const getWeather = async () => {
+const getWeather = async (city, location) => {
   //获取墨迹天气
-  let url = config.MOJI_HOST + config.CITY + "/" + config.LOCATION;
+  let url = config.MOJI_HOST + city + "/" + location;
   let res = await fetch(url, "GET");
   let $ = cheerio.load(res.text);
+
+  let addressText = $(".search_default")
+    .text()
+    .trim()
+    .split("， ")
+    .reverse()
+    .join("-");
   let weatherTip = $(".wea_tips em").text();
 
   const now = $(".wea_weather.clearfix");
@@ -73,6 +80,7 @@ const getWeather = async () => {
 
   return {
     moji: {
+      addressText,
       weatherTip,
       nowInfo,
       threeDaysData
@@ -80,9 +88,9 @@ const getWeather = async () => {
   };
 };
 
-const getAllData = async () => {
+const getAllData = async (city, location) => {
   let oneData = await getOne();
-  let weatherData = await getWeather();
+  let weatherData = await getWeather(city, location);
   const allData = { today: formatDate(), ...oneData, ...weatherData };
   return allData;
 };

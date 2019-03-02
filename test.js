@@ -6,6 +6,7 @@ const data = {
     imgSrc: "http://image.wufazhuce.com/Fh0XS7aucYI1BxpNDyJ6QBV9BQS-"
   },
   moji: {
+    addressText: "中国-江苏省-浦口区",
     weatherTip: "明天有雨，天气阴冷，穿暖和点吧！",
     nowInfo: { Temp: "7", WeatherText: "阴", FreshText: "今天22:03更新" },
     threeDaysData: [
