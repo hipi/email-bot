@@ -1,15 +1,6 @@
-const nodemailer = require("nodemailer"); //发送邮件的node插件
 const config = require("./../config");
-const sendMail = (To, HtmlData) => {
+const sendMail = (transporter, To, HtmlData) => {
   return new Promise((resolve, reject) => {
-    let transporter = nodemailer.createTransport({
-      service: config.EmianService,
-      port: 465,
-      secureConnection: true,
-      auth: config.EamilAuth,
-      pool: true
-    });
-
     let mailOptions = {
       from: config.EmailFrom,
       to: To,

@@ -20,7 +20,7 @@ module.exports = {
       LOCATION: "pukou-district"
     },
     {
-      TO: "angQi14303@163.com",
+      TO: "yuyehack@qq.com", //angQi14303@163.com
       CITY: "jiangsu",
       LOCATION: "kunshan"
     }
