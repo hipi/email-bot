@@ -23,6 +23,6 @@ const getAllDataAndSendMail = async () => {
     });
   }
 };
-getAllDataAndSendMail();
+//getAllDataAndSendMail();
 // 定时
-//scheduleRun(getAllDataAndSendMail);
+scheduleRun(getAllDataAndSendMail);
