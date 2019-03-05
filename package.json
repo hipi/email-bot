@@ -6,7 +6,8 @@
   "author": "cyea",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon index.js",
+    "start": "node index.js",
+    "dev": "nodemon index.js",
     "test": "nodemon test.js"
   },
   "dependencies": {

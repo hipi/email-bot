@@ -15,14 +15,15 @@ let transporter = nodemailer.createTransport({
 });
 const getAllDataAndSendMail = async () => {
   for (let i = 0, len = EmailToArr.length; i < len; i++) {
-    let item = EmailToArr[i];
-    let apiData = await getAllData(item.CITY, item.LOCATION);
-    let htmlData = await getHtmlData(apiData);
-    sendMail(transporter, item.TO, htmlData).catch(To => {
-      console.log(To + "邮件发送失败");
-    });
+    try {
+      let item = EmailToArr[i];
+      let apiData = await getAllData(item.CITY, item.LOCATION);
+      let htmlData = await getHtmlData(apiData);
+      await sendMail(transporter, item.TO, htmlData);
+    } catch (error) {
+      console.error(error);
+    }
   }
 };
-//getAllDataAndSendMail();
 // 定时
 scheduleRun(getAllDataAndSendMail);
