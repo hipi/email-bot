@@ -1,24 +1,28 @@
 ## email-bot
 
-> 根据用户配置 爬取 one 和不同地区墨迹天气 每天定时多人发邮件
+> 根据用户配置 爬取 one 和不同地区墨迹天气 每天定时发邮件，支持多人地区个性化定制
 
-## how to use 
+## 使用
 
 ```bash
 git clone https://github.com/cyea/email-bot.git
 
 cd email-bot
 
-yarn 
+yarn
 
 ```
 
 新建`.env`文件 格式是跟`.env.example` 一样的 **填入自己的邮箱账号密码及邮件提供商**
 
+### 配置
+
 修改`config/index.js`里的配置文件
 
 ```js
-ONE: "http://wufazhuce.com/", // ONE的web版网站
+const { env } = process;
+module.exports = {
+  ONE: "http://wufazhuce.com/", // ONE的web版网站
   MOJI_HOST: "https://tianqi.moji.com/weather/china/", // 中国墨迹天气url,
   EmianService: env.EmianService, // 发送者邮箱厂家
   EamilAuth: {
@@ -38,22 +42,59 @@ ONE: "http://wufazhuce.com/", // ONE的web版网站
       LOCATION: "pukou-district" // 墨迹天气链接末尾详细地区代码
     },
     {
-      TO: "yuyehack@qq.com", 
+      TO: "yuyehack@qq.com",
       CITY: "jiangsu",
-      LOCATION: "kunshan" 
+      LOCATION: "kunshan"
     }
   ],
   //每日发送时间
   SENDDATE: "58 15 8 * * *"
+};
 ```
 
 ```bash
 yarn start
 ```
 
-调试的话 可以自己修改定时任务 详细定时文档可去[node-schedule](https://github.com/node-schedule/node-schedule) 
+## 优化
 
-## 最后
+根据 [Vincedream](https://github.com/Vincedream/NodeMail)提供的思路 进行了代码重构
 
-仅供娱乐
-感谢[Vincedream](https://github.com/Vincedream/NodeMail)提供的思路
+### 1. 不使用用`ejs`
+
+`ejs` 这种模板已经年老 更新不及时，所以换了更清晰更新的 `nunjucks`
+
+### 2. 代码结构
+
+```
+│  .env.example #.env
+│  .gitignore
+│  index.js #服务启动模块
+│  LICENSE
+│  package.json
+│  README.md
+│  schedule.js #定时模块
+│  test.js #模板样式调试模块
+│  yarn.lock
+│
+├─config
+│      index.js #配置
+│
+├─email
+│      index.js #发送邮件模块
+│
+├─superagent
+│      index.js #获取天气及ONE 数据
+│
+├─utils
+│      index.js #通用工具函数
+│      superagent.js #请求发送封装
+│
+└─view
+        index.js #生成邮件样式模块
+        index.njk #邮件样式模板模块
+```
+
+发送者的邮箱过于隐私 所以放进了 `.env`文件 作为环境变量
+
+每个步骤 都基于 `ES6` 的 的 `async await`进行异步

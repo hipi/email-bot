@@ -1,7 +1,7 @@
 {
-  "name": "wechat-bot",
+  "name": "email-bot",
   "version": "0.0.1",
-  "description": "wechat bot",
+  "description": "email-bot",
   "main": "index.js",
   "author": "cyea",
   "license": "MIT",
