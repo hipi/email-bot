@@ -98,3 +98,7 @@ yarn start
 发送者的邮箱过于隐私 所以放进了 `.env`文件 作为环境变量
 
 每个步骤 都基于 `ES6` 的 的 `async await`进行异步
+
+## demo
+![](https://i.loli.net/2019/04/09/5cac0c1ca75f1.png)
+
