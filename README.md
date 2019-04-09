@@ -1,4 +1,4 @@
-## email-bot
+## Email-Bot
 
 > 根据用户配置 爬取 one 和不同地区墨迹天气 每天定时发邮件，支持多人地区个性化定制
 
@@ -8,7 +8,7 @@
 
 ## 使用
 
-### 安装依赖
+#### 安装依赖
 
 ```bash
 git clone https://github.com/cyea/email-bot.git
@@ -21,11 +21,11 @@ yarn
 
 ### 配置
 
-### 修改发送者邮箱账号密码敏感配置
+#### 修改发送者邮箱账号密码敏感配置
 
 新建`.env`文件 格式是跟`.env.example` 一样的 **填入自己的邮箱账号密码及邮件提供商**
 
-## 修改其他不敏感配置
+#### 修改其他不敏感配置
 
 修改`config/index.js`里的配置文件
 
@@ -62,7 +62,7 @@ module.exports = {
 };
 ```
 
-### 运行
+#### 运行
 
 ```bash
 yarn start
@@ -72,19 +72,9 @@ yarn start
 
 根据 [Vincedream](https://github.com/Vincedream/NodeMail)提供的思路 进行了代码重构
 
-### 1. 代码结构优化
+#### 1. 代码结构优化
 
 ```
-│  .env.example #.env
-│  .gitignore
-│  index.js #服务启动模块
-│  LICENSE
-│  package.json
-│  README.md
-│  schedule.js #定时模块
-│  test.js #模板样式调试模块
-│  yarn.lock
-│
 ├─config
 │      index.js #配置
 │
@@ -98,19 +88,28 @@ yarn start
 │      index.js #通用工具函数
 │      superagent.js #请求发送封装
 │
-└─view
-        index.js #生成邮件样式模块
-        index.njk #邮件样式模板模块
+├─view
+|        index.js #生成邮件样式模块
+|        index.njk #邮件样式模板模块
+│  .env.example #.env
+│  index.js #服务启动模块
+│  schedule.js #定时模块
+│  test.js #模板样式调试模块
+│  yarn.lock
+│  .gitignore
+│  LICENSE
+│  package.json
+│  README.md
 ```
 
-### 2. 隐私隐藏并忽略提交
+#### 2. 隐私隐藏并忽略提交
 
 发送者的邮箱过于隐私 所以放进了 `.env`文件 作为环境变量
 
-### 3. 异步处理
+#### 3. 异步处理
 
 每个步骤 都基于 `ES6` 的 的 `async await`进行异步
 
-### 4. 不使用`ejs`
+#### 4. 不使用`ejs`
 
 `ejs` 这种模板已经年老 更新不及时，所以换了更清晰更新的 `nunjucks`
