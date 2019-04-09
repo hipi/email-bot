@@ -51,7 +51,7 @@ module.exports = {
   SENDDATE: "58 15 8 * * *"
 };
 ```
-
+## 运行
 ```bash
 yarn start
 ```
