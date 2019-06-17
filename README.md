@@ -1,5 +1,7 @@
 ## Email-Bot
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/f2eaea60819449c4b7fefd439cef4bdf)](https://app.codacy.com/app/cyea/email-bot?utm_source=github.com&utm_medium=referral&utm_content=cyea/email-bot&utm_campaign=Badge_Grade_Dashboard)
+
 > 根据用户配置 爬取 one 和不同地区墨迹天气 每天定时发邮件，支持多人地区个性化定制。详细文档请看https://chenyeah.com/posts/713d3487/ 
 
 
