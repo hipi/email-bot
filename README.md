@@ -111,6 +111,3 @@ yarn start
 
 每个步骤 都基于 `ES6` 的 的 `async await`进行异步
 
-#### 4. 不使用`ejs`
-
-`ejs` 这种模板已经年老 更新不及时，所以换了更清晰更新的 `nunjucks`
