@@ -17,7 +17,7 @@ const getAllDataAndSendMail = async () => {
   for (let i = 0, len = EmailToArr.length; i < len; i++) {
     try {
       let item = EmailToArr[i];
-      let apiData = await getAllData(item.CITY, item.LOCATION);
+      let apiData = await getAllData(item.CITY, item.LOCATION);      
       let htmlData = await getHtmlData(apiData);
       await sendMail(transporter, item.TO, htmlData);
     } catch (error) {
@@ -25,5 +25,7 @@ const getAllDataAndSendMail = async () => {
     }
   }
 };
+// test
+// getAllDataAndSendMail()
 // 定时
 scheduleRun(getAllDataAndSendMail);
