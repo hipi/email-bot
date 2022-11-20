@@ -18,7 +18,7 @@
     "nodemailer": "^6.4.11",
     "nodemon": "^2.0.4",
     "nunjucks": "^3.2.2",
-    "superagent": "^5.3.1"
+    "superagent": "^8.0.0"
   },
   "devDependencies": {
     "express": "4.17.3"
